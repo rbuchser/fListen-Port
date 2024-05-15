@@ -1,4 +1,4 @@
-﻿Function fListen-Port {
+Function fListen-Port {
 	<#
 		.NOTES
 			Author: Buchser Roger
@@ -13,7 +13,7 @@
 			The TCP port that the listener should attach to.
 		
 		.EXAMPLE
-			fListen-Port 5986
+			fListen-Port -Port 5986
 			Listening on port 5986, press CTRL+C to cancel
 		
 		.LINK
@@ -42,7 +42,7 @@
 		}
     } Catch {
         #Write-Error $_
-		fWrite-Info -cr "There is already an existing Listener for Port $Port" -f Yellow
+		Write-Host "`n`rThere is already an existing Listener for Port $Port" -f Yellow
 		Write-Host
 		$ExistingListener = $True
 		#netstat -ano | Select-String 0.0.0.0:$Port
